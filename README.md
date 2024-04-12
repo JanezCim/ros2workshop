@@ -9,7 +9,7 @@ Make sure you have Docker installed (see resources).
 
 You should automatically create and connect to a Docker container with ROS2.
 
-If a Docker already exists OR another terminal needs to be opened in same container, run:
+If a container already exists OR another terminal needs to be opened in same container, run:
 
     docker exec  -it ros2workshop /bin/bash
 
