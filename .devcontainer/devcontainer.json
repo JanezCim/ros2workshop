@@ -4,8 +4,8 @@
 	"build": {
 			"dockerfile": "Dockerfile"
 	},
-	"workspaceFolder": "/home/ws",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/home/ws/src,type=bind",
+	"workspaceFolder": "/root/ros2workshop_ws",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/root/ros2workshop_ws,type=bind",
 	"customizations": {
 			"vscode": {
 					"extensions":[
@@ -35,5 +35,5 @@
 			"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
 			"source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
 	],
-	"postCreateCommand": "sudo apt update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
+	"postCreateCommand": "sudo apt update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /root/ros2workshop_ws"
 }
