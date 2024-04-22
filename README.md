@@ -23,6 +23,9 @@ If a container already exists OR another terminal needs to be opened in same con
  - [Turtlesim](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
  - [Understanding Nodes, Topics, Services, Parameters, RQT](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html)
 
+**Workshop 2**
+ - [Configuring workspaces and packages](workspaces_packages.md)
+
 
 # Resources
 Docker install https://docs.docker.com/engine/install/
