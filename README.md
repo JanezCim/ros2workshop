@@ -26,6 +26,10 @@ If a container already exists OR another terminal needs to be opened in same con
 **Workshop 2**
  - [Configuring workspaces and packages](workspaces_packages.md)
 
+**Workshop 3**
+ - [Installig Docker](docker_install.md)
+ - [Writing a Python Publisher with VSCode and Docker](publisher_docker_vscode.md)
+
 
 # Resources
 Docker install https://docs.docker.com/engine/install/
@@ -37,3 +41,6 @@ ROS2 on Docker https://docs.ros.org/en/humble/How-To-Guides/Run-2-nodes-in-singl
 
 ## Experiencing issues opening visual programs on Docker container?
 Solution: run `xhost +local:docker` on host before running container (tested on Ubuntu18.04). Full conversation about this [here](https://github.com/JanezCim/ros2workshop/issues/1).
+
+
+
