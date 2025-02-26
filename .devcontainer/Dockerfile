@@ -10,7 +10,7 @@ RUN apt-get install python3-vcstool python3-colcon-common-extensions git wget -y
 RUN apt-get install openssh-client -y
 
 # Ease of use stuff
-RUN apt-get install -y nano bash-completion
+# RUN apt-get install -y nano bash-completion
 RUN echo 'source /opt/ros/jazzy/setup.bash' >> /root/.bashrc
 RUN echo 'alias s="source install/local_setup.bash"' >> /root/.bashrc
 # Colcon builds with symlik (so recompile is not needed for python or config changes) and for release
@@ -21,7 +21,7 @@ RUN echo 'PYTHONWARNINGS="ignore:easy_install command is deprecated,ignore:setup
 ENV TURTLEBOT3_MODEL 'burger'
 
 # Additional ROS stuff
-# RUN apt-get install ros-jazzy-rqt-tf-tree -y
+RUN apt-get install ros-jazzy-rqt-tf-tree -y
 
 # Force color prompt for sudo user
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
