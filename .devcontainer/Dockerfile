@@ -1,6 +1,6 @@
 FROM osrf/ros:jazzy-desktop-full
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update -y
 RUN apt-get install -y python3-pip
 
 # Installations for workspace manipulation
