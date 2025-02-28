@@ -21,7 +21,7 @@ RUN echo 'PYTHONWARNINGS="ignore:easy_install command is deprecated,ignore:setup
 ENV TURTLEBOT3_MODEL 'burger'
 
 # Additional ROS stuff
-# RUN apt-get install ros-jazzy-rqt-tf-tree -y
+RUN apt-get install ros-jazzy-rqt-tf-tree -y
 
 # Force color prompt for sudo user
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc

@@ -1,8 +1,8 @@
 {
-	"name": "ROS 2 Development Container",
+	"name": "LINUX ROS 2 Development Container",
 	"privileged": true,
 	"build": {
-			"dockerfile": "Dockerfile"
+			"dockerfile": "../Dockerfile"
 	},
 	"workspaceFolder": "/root/ros2workshop_ws",
 	"customizations": {
