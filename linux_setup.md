@@ -12,7 +12,7 @@ In VSCode install extension [Dev Containers](https://marketplace.visualstudio.co
 ### 3. Clone this repo and build the container
  - Clone this repo into the selected directory in Terminal by executing:
 
-    git clone https://github.com/JanezCim/ros2workshop.git
+         git clone https://github.com/JanezCim/ros2workshop.git
 
  - Then open the cloned repo with VSCode and do `F1 -> Rebuild and Reopen Container -> LINUX ROS 2 Development Container`.
 
