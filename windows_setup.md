@@ -1,4 +1,4 @@
-## Windows setup (tested on Windows 11)
+## Windows setup (tested on Windows 11) (Unverified and in testing)
 Make sure internet connection is working.
 
 ### 1. Install: 

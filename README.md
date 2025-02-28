@@ -2,7 +2,7 @@
 
 # System setup
  - [Linux setup](linux_setup.md)
- - [Windows setup](windows_setup.md)
+ - [Windows setup (Unverified and in testing)](windows_setup.md)
 
 # Things covered
 **Workshop 1**
