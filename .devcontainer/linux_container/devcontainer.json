@@ -35,9 +35,7 @@
 			"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
 			"source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
 			// Mount workspace folder 
-			"source=${localWorkspaceFolder},target=/root/ros2workshop_ws,type=bind",
-			// Mount ssh keys for git managament from inside container
-			"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"  
+			"source=${localWorkspaceFolder},target=/root/ros2workshop_ws,type=bind"
 	],
 	"postCreateCommand": "sh ./.devcontainer/postCreate.sh"
 }
