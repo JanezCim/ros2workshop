@@ -1,6 +1,6 @@
 FROM osrf/ros:jazzy-desktop-full
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update -y
 RUN apt-get install -y python3-pip
 
 # Installations for workspace manipulation
@@ -10,7 +10,7 @@ RUN apt-get install python3-vcstool python3-colcon-common-extensions git wget -y
 RUN apt-get install openssh-client -y
 
 # Ease of use stuff
-# RUN apt-get install -y nano bash-completion
+RUN apt-get install -y nano bash-completion
 RUN echo 'source /opt/ros/jazzy/setup.bash' >> /root/.bashrc
 RUN echo 'alias s="source install/local_setup.bash"' >> /root/.bashrc
 # Colcon builds with symlik (so recompile is not needed for python or config changes) and for release

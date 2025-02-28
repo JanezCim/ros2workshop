@@ -1,21 +1,8 @@
 # ros2workshop
 
-# Running with VSCode
-In VSCode install extension [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Then open this repo in VSCode and do `F1 -> Rebuild and Reopen Container`.
-
-# Run ROS2 Manually with Docker (only tested on Ubuntu 22.04)
-
-Make sure you have Docker installed (see resources).
-
-    cd .devcontainer/
-    ./manualrun.sh
-
-You should automatically create and connect to a Docker container with ROS2.
-
-If a container already exists OR another terminal needs to be opened in same container, run:
-
-    docker exec  -it ros2workshop /bin/bash
-
+# System setup
+ - [Linux setup](linux_setup.md)
+ - [Windows setup](windows_setup.md)
 
 # Things covered
 **Workshop 1**
@@ -54,3 +41,16 @@ Solution: run `xhost +local:docker` on host before running container (tested on 
 
 
 
+Enabling on windows
+
+Install VScode, docker desktop
+
+install xhost https://stackoverflow.com/questions/44429394/x11-forwarding-of-a-gui-app-running-in-docker
+
+https://www.youtube.com/watch?v=qWuudNxFGOQ
+
+Some other common problems: https://docs.ros.org/en/jazzy/How-To-Guides/Installation-Troubleshooting.html#windows
+
+Great video tutorials: https://www.youtube.com/watch?v=RbP5cARP-SM&list=PLunhqkrRNRhaqt0UfFxxC_oj7jscss2qe&index=3
+
+Comment with exactly the same problem https://github.com/ros2/rviz/issues/929#issuecomment-1678262970
