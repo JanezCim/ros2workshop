@@ -18,14 +18,26 @@ RUN echo 'alias c="colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYP
 # Suppress colcon specific warning for python package compilation as suggested in https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble
 RUN echo 'PYTHONWARNINGS="ignore:easy_install command is deprecated,ignore:setup.py install is deprecated"; export PYTHONWARNINGS' >> /root/.bashrc
 # Select which turtlebot to spawn, see other options in https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/master/turtlebot3_gazebo/models
-ENV TURTLEBOT3_MODEL 'burger'
+ENV TURTLEBOT3_MODEL='burger'
 
 # Additional ROS stuff
 RUN apt-get install ros-jazzy-rqt-tf-tree -y
 
-# Force color prompt for sudo user
-RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
+# VSCodium 
+ARG CODIUM_RELEASE=1.87.1.24068
+RUN wget https://github.com/VSCodium/vscodium/releases/download/${CODIUM_RELEASE}/codium_${CODIUM_RELEASE}_amd64.deb \
+    && apt-get update \
+    && apt-get -f -y install ./codium_${CODIUM_RELEASE}_amd64.deb \
+    && rm --force --recursive /var/lib/apt/lists/*
+RUN echo 'alias codium="codium --no-sandbox --user-data-dir /opt/vscodium/home"' >> /root/.bashrc
 
-ENV SHELL /bin/bash
+# Force color prompt for sudo user and set username color to orange
+RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
+RUN echo 'PS1="\e[38;5;214m\\u\\e[0m@\\h:\\w# "' >> /root/.bashrc
+
+# On every login, cd into home directory
+RUN echo 'cd' >> /root/.bashrc
+
+ENV SHELL=/bin/bash
 
 CMD ["/bin/bash"]
