@@ -1,8 +1,19 @@
 # ros2workshop
 
 # System setup
- - [Linux setup](linux_setup.md)
- - [Windows setup (Unverified and in testing)](windows_setup.md)
+1. [Install Docker](https://docs.docker.com/engine/install/) 
+    
+    Make sure you have sudo-less Docker setup with 
+    
+        sudo usermod -aG docker $USER
+
+    After which the computer should be restarted.
+
+2. Clone this repository into prefered directory:
+
+        git clone git@github.com:JanezCim/ros2workshop.git
+
+3. Inside the directory execute `./run_env` 
 
 # Things covered
 **Workshop 1**
@@ -14,8 +25,7 @@
  - [Configuring workspaces and packages](workspaces_packages.md)
 
 **Workshop 3**
- - [Installig Docker](docker_install.md)
- - [Writing a Python Publisher with VSCode and Docker](publisher_docker_vscode.md)
+ - [Writing a minimal Python Publisher](minimal_python_publisher.md)
 
 
 # Simulated robot
