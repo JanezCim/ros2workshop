@@ -33,7 +33,7 @@ RUN echo 'alias codium="codium --no-sandbox --user-data-dir /opt/vscodium/home"'
 
 # Force color prompt for sudo user and set username color to orange
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
-RUN echo 'PS1="\e[38;5;214m\\u\\e[0m@\\h:\\w# "' >> /root/.bashrc
+RUN echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[38;214m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /root/.bashrc
 
 # On every login, cd into home directory
 RUN echo 'cd' >> /root/.bashrc
