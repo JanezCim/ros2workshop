@@ -24,12 +24,24 @@ ENV TURTLEBOT3_MODEL='burger'
 RUN apt-get install ros-jazzy-rqt-tf-tree -y
 
 # VSCodium 
-ARG CODIUM_RELEASE=1.87.1.24068
-RUN wget https://github.com/VSCodium/vscodium/releases/download/${CODIUM_RELEASE}/codium_${CODIUM_RELEASE}_amd64.deb \
-    && apt-get update \
-    && apt-get -f -y install ./codium_${CODIUM_RELEASE}_amd64.deb \
-    && rm --force --recursive /var/lib/apt/lists/*
+ARG CODIUM_REL=1.99.02289
+RUN wget https://github.com/VSCodium/vscodium/releases/download/${CODIUM_REL}/codium_${CODIUM_REL}_amd64.deb
+RUN apt-get update
+RUN apt-get -f -y install ./codium_${CODIUM_REL}_amd64.deb
+RUN rm --force --recursive /var/lib/apt/lists/*
 RUN echo 'alias codium="codium --no-sandbox --user-data-dir /opt/vscodium/home"' >> /root/.bashrc
+
+# VSCode
+RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+RUN sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+RUN echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+RUN rm -f packages.microsoft.gpg
+RUN sudo apt install apt-transport-https -y
+RUN sudo apt update -y
+RUN sudo apt install code -y
+RUN code --no-sandbox --user-data-dir /opt/vscode/home --install-extension jaehyunshim.vscode-ros2
+RUN code --no-sandbox --user-data-dir /opt/vscode/home --install-extension ms-python.python
+RUN echo 'alias code="code --no-sandbox --user-data-dir /opt/vscode/home"' >> /root/.bashrc
 
 # Force color prompt for sudo user and set username color to orange
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
