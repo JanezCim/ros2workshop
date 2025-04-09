@@ -1,3 +1,4 @@
+import os, glob
 from setuptools import find_packages, setup
 
 package_name = 'python_examples'
@@ -10,6 +11,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob.glob('launch/*.launch.py'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -21,7 +23,8 @@ setup(
     entry_points={
         'console_scripts': [
             'topic_republisher = python_examples.topic_republisher:main',
-            'scan_subscriber = python_examples.scan_subscriber:main'
+            'scan_subscriber = python_examples.scan_subscriber:main',
+            'robot_manipulator = python_examples.robot_manipulator:main'
         ],
     },
 )
