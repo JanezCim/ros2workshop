@@ -11,9 +11,15 @@
 
 2. Clone this repository into prefered directory:
 
-        git clone git@github.com:JanezCim/ros2workshop.git
+        git clone https://github.com/JanezCim/ros2workshop.git
 
-3. Inside the directory execute `./run_env` 
+3. Inside the directory execute `./run_env` which will take you to Docker environment
+
+4. Once inside docker environment (indicated by orange username and hostname) navigate to the workspace, build and source environment:
+
+        cd ~/ros2workshop_ws/
+        colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release
+        source install/local_setup.bash
 
 # Things covered
 **Workshop 1**
