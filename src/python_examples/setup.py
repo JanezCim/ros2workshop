@@ -24,7 +24,10 @@ setup(
         'console_scripts': [
             'topic_republisher = python_examples.topic_republisher:main',
             'scan_subscriber = python_examples.scan_subscriber:main',
-            'robot_manipulator = python_examples.robot_manipulator:main'
+            'robot_manipulator = python_examples.robot_manipulator:main',
+            'print_pose = python_examples.print_pose:main',
+            'minimal_service_client = python_examples.minimal_service_client:main',
+            'turtle_dance = python_examples.turtle_dance:main'
         ],
     },
 )
