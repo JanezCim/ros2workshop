@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'path_follower = myrobot_nav.path_follower:main'
+            'path_follower = myrobot_nav.path_follower:main',
+            'cmd_vel_timeout = myrobot_nav.cmd_vel_timeout:main'
         ],
     },
 )
