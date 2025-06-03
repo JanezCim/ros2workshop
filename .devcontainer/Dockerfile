@@ -1,5 +1,9 @@
 FROM osrf/ros:jazzy-desktop-full
 
+# Getting latest keys for ros apt packages
+RUN sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
 RUN apt-get update -y
 RUN apt-get install -y python3-pip
 
@@ -22,14 +26,6 @@ ENV TURTLEBOT3_MODEL='burger'
 
 # Additional ROS stuff
 RUN apt-get install ros-jazzy-rqt-tf-tree -y
-
-# VSCodium 
-ARG CODIUM_REL=1.99.02289
-RUN wget https://github.com/VSCodium/vscodium/releases/download/${CODIUM_REL}/codium_${CODIUM_REL}_amd64.deb
-RUN apt-get update
-RUN apt-get -f -y install ./codium_${CODIUM_REL}_amd64.deb
-RUN rm --force --recursive /var/lib/apt/lists/*
-RUN echo 'alias codium="codium --no-sandbox --user-data-dir /opt/vscodium/home"' >> /root/.bashrc
 
 # VSCode
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
