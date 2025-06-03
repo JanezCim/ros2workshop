@@ -37,7 +37,7 @@ RUN sudo apt update -y
 RUN sudo apt install code -y
 RUN code --no-sandbox --user-data-dir /opt/vscode/home --install-extension jaehyunshim.vscode-ros2
 RUN code --no-sandbox --user-data-dir /opt/vscode/home --install-extension ms-python.python
-RUN echo 'alias code="code --no-sandbox --user-data-dir /opt/vscode/home"' >> /root/.bashrc
+RUN echo 'alias code="code --no-sandbox --user-data-dir /opt/vscode/home -n /root/ros2workshop_ws/"' >> /root/.bashrc
 
 # Force color prompt for sudo user and set username color to orange
 RUN sed -i -e 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
