@@ -22,7 +22,7 @@
   gz_type_name: "gz.msgs.Pose_V"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "cmd_vel"
+- ros_topic_name: "/turtle1/cmd_vel" #TODO make this as an argument, settable from launch
   gz_topic_name: "cmd_vel"
   ros_type_name: "geometry_msgs/msg/Twist"
   gz_type_name: "gz.msgs.Twist"
