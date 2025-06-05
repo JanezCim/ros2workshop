@@ -10,7 +10,7 @@
                 <cylinder radius="${robot['wheel']['radius']}" length="${robot['wheel']['width']}"/>
             </geometry>
             <material name="${prefix}_wheel_material">
-                <color rgba="0 0 0 1.0"/>
+                <color rgbaasdf="0 0 0 1.0"/>
             </material>
         </visual>
         <collision>
