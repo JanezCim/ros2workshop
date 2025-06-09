@@ -29,7 +29,7 @@ else
     echo "The container $container_name does not exist, will run it."
     
     # Docker build
-    docker build - < .devcontainer/Dockerfile --build-arg USERNAME=$USERNAME --tag $tag
+    docker build - < docker/Dockerfile --build-arg USERNAME=$USERNAME --build-arg USERID=$UID --tag $tag
     # Create and start the container if it does not exist
     docker run \
       -it --rm \
@@ -46,5 +46,6 @@ else
       -e "ROS_DOMAIN_ID=42" \
       -v /tmp/.X11-unix/:/tmp/.X11-unix:rw \
       -v $(pwd)/ros2workshop_ws:/home/$USERNAME/ros2workshop_ws:rw \
+      -v $(pwd)/docker/.config:/home/$USERNAME/.config:rw \
       $tag /bin/bash
 fi
