@@ -1,8 +1,13 @@
 FROM osrf/ros:jazzy-desktop-full
 
 ARG USERNAME=bob
-RUN groupadd -g 1234 ${USERNAME}group && \
-    useradd -m -u 1234 -g ${USERNAME}group $USERNAME
+ARG USERID=1000
+
+RUN usermod -u 1234 ubuntu
+RUN groupmod -g 1234 ubuntu
+
+RUN groupadd -g $USERID $USERNAME && \
+    useradd -m -u $USERID -g $USERNAME $USERNAME
 
 # Getting latest keys for ros apt packages
 RUN sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
@@ -19,12 +24,12 @@ RUN apt-get install openssh-client -y
 
 # Ease of use stuff
 RUN apt-get install -y nano bash-completion
-RUN echo 'source /opt/ros/jazzy/setup.bash' >> /root/.bashrc
-RUN echo 'alias s="source install/local_setup.bash"' >> /root/.bashrc
+RUN echo 'source /opt/ros/jazzy/setup.bash' >> /home/$USERNAME/.bashrc
+RUN echo 'alias s="source install/local_setup.bash"' >> /home/$USERNAME/.bashrc
 # Colcon builds with symlik (so recompile is not needed for python or config changes) and for release
-RUN echo 'alias c="colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release"' >> /root/.bashrc
+RUN echo 'alias c="colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release"' >> /home/$USERNAME/.bashrc
 # Suppress colcon specific warning for python package compilation as suggested in https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble
-RUN echo 'PYTHONWARNINGS="ignore:easy_install command is deprecated,ignore:setup.py install is deprecated"; export PYTHONWARNINGS' >> /root/.bashrc
+RUN echo 'PYTHONWARNINGS="ignore:easy_install command is deprecated,ignore:setup.py install is deprecated"; export PYTHONWARNINGS' >> /home/$USERNAME/.bashrc
 # Select which turtlebot to spawn, see other options in https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/master/turtlebot3_gazebo/models
 ENV TURTLEBOT3_MODEL='burger'
 
@@ -48,7 +53,6 @@ RUN echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;214m\]\u@\h\[\033[0
 
 # Switch to the user
 USER $USERNAME
-
 
 RUN code --no-sandbox --install-extension jaehyunshim.vscode-ros2
 RUN code --no-sandbox --install-extension ms-python.python
