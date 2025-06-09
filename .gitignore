@@ -1,5 +1,12 @@
 build
 install
 log
+docker/.config/Code/logs
+docker/.config/Code/DawnGraphiteCache
+docker/.config/Code/DawnWebGPUCache
+docker/.config/Code/GPUCache
+docker/.config/Code/Session Storage
+docker/.config/Code/Code Cache
+docker/.config/Code/User/globalStorage/storage.json
 .vscode
 __pycache__
