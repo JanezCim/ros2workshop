@@ -1,12 +1,8 @@
 build
 install
 log
-docker/.config/Code/logs
-docker/.config/Code/DawnGraphiteCache
-docker/.config/Code/DawnWebGPUCache
-docker/.config/Code/GPUCache
-docker/.config/Code/Session Storage
-docker/.config/Code/Code Cache
-docker/.config/Code/User/globalStorage/storage.json
 .vscode
+# Ignore every Code setting except the User settings.json
+docker/.config/Code/
+!docker/.config/Code/User/settings.json
 __pycache__
