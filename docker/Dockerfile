@@ -54,6 +54,7 @@ RUN echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;214m\]\u@\h\[\033[0
 # Switch to the user
 USER $USERNAME
 
+env DONT_PROMPT_WSL_INSTALL=No_Prompt_please
 RUN code --no-sandbox --install-extension jaehyunshim.vscode-ros2
 RUN code --no-sandbox --install-extension ms-python.python
 
